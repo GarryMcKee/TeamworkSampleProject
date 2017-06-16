@@ -8,12 +8,6 @@ public class ProjectListActivity extends SingleFragmentActivity {
 
     @Override
     protected Fragment createFragment() {
-        return null;
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_project_list);
+        return new ProjectListFragment();
     }
 }
