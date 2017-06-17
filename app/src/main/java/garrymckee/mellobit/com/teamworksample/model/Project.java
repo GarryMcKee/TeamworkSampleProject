@@ -5,15 +5,39 @@ package garrymckee.mellobit.com.teamworksample.model;
  */
 
 public class Project {
-    Company company;
-    boolean starred;
-    String name;
-    String description;
-    String logo;
-    int id;
+    private Company company;
+    private boolean starred;
+    private String name;
+    private String description;
+    private String logo;
+    private int id;
 
     @Override
     public String toString() {
-        return name + "id: " + id;
+        return getName() + "id: " + getId();
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public boolean isStarred() {
+        return starred;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public int getId() {
+        return id;
     }
 }

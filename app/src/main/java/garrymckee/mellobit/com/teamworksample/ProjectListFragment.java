@@ -8,6 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
 
@@ -22,6 +26,7 @@ import garrymckee.mellobit.com.teamworksample.model.Project;
 public class ProjectListFragment extends Fragment implements ProjectListContract.ProjectListFragment{
 
     private ProjectListPresenter mPresenter;
+    private List<Project> mProjects;
 
     @BindView(R.id.project_list_view)
     RecyclerView mProjectListView;
@@ -39,19 +44,28 @@ public class ProjectListFragment extends Fragment implements ProjectListContract
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(!Fresco.hasBeenInitialized()) {
+            Fresco.initialize(getActivity());
+        }
         mPresenter = new ProjectListPresenter(this);
         mPresenter.fetchProjects();
     }
 
     @Override
     public void onProjectsReady(List<Project> projects) {
-        //Display projects
+        mProjects = projects;
+        mProjectListView.setAdapter(new ProjectAdapter(mProjects));
     }
 
-    private class ProjectViewHolder extends RecyclerView.ViewHolder {
+    class ProjectViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.project_logo)
+        SimpleDraweeView projectLogo;
+        @BindView(R.id.project_name_text_view)
+        TextView projectNameTextView;
 
-        public ProjectViewHolder(LayoutInflater layoutInflater, ViewGroup parent){
-            super(layoutInflater.inflate(R.layout.project_list_item, parent, false));
+        public ProjectViewHolder(View v){
+            super(v);
+            ButterKnife.bind(this, v);
         }
     }
 
@@ -65,17 +79,20 @@ public class ProjectListFragment extends Fragment implements ProjectListContract
 
         @Override
         public ProjectViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return null;
+            LayoutInflater inflater = LayoutInflater.from(getActivity());
+            return new ProjectViewHolder(inflater.inflate(R.layout.project_list_item, parent, false));
         }
 
         @Override
         public void onBindViewHolder(ProjectViewHolder holder, int position) {
-
+            Project project = mProjects.get(position);
+            holder.projectLogo.setImageURI(project.getLogo());
+            holder.projectNameTextView.setText(project.getName());
         }
 
         @Override
         public int getItemCount() {
-            return 0;
+            return mProjects.size();
         }
     }
 }

@@ -38,7 +38,7 @@ public class ProjectRepository {
     public void setProjects(List<Project> projects) {
         mProjects = new HashMap<>();
         for (Project project : projects) {
-            mProjects.put(project.id, project);
+            mProjects.put(project.getId(), project);
         }
     }
 

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="project_logo_size">20dp</dimen>
+
+    <dimen name= "project_list_item_height">72dp</dimen>
 </resources>
