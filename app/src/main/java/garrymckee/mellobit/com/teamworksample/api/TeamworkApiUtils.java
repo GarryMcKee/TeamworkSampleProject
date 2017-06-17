@@ -1,15 +1,6 @@
 package garrymckee.mellobit.com.teamworksample.api;
 
-import android.util.Log;
-
-import java.util.List;
-
-import garrymckee.mellobit.com.teamworksample.model.Project;
-import garrymckee.mellobit.com.teamworksample.model.Projects;
 import okhttp3.Credentials;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
