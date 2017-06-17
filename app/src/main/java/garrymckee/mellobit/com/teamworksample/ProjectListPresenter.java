@@ -7,6 +7,7 @@ import java.util.List;
 import garrymckee.mellobit.com.teamworksample.api.TeamworkApiService;
 import garrymckee.mellobit.com.teamworksample.api.TeamworkApiUtils;
 import garrymckee.mellobit.com.teamworksample.model.Project;
+import garrymckee.mellobit.com.teamworksample.model.ProjectRepository;
 import garrymckee.mellobit.com.teamworksample.model.Projects;
 import okhttp3.Credentials;
 import retrofit2.Call;
@@ -34,7 +35,8 @@ public class ProjectListPresenter implements ProjectListContract.ProjectListPres
         call.enqueue(new Callback<Projects>() {
             @Override
             public void onResponse(Call<Projects> call, Response<Projects> response) {
-                Log.d("CHECKPROJECT", response.body().toString());
+                ProjectRepository.getInstance().setProjects(response.body().getProjects());
+                mView.onProjectsReady(ProjectRepository.getInstance().getProjects());
             }
 
             @Override
@@ -42,6 +44,5 @@ public class ProjectListPresenter implements ProjectListContract.ProjectListPres
 
             }
         });
-        mView.onProjectsReady(null);
     }
 }

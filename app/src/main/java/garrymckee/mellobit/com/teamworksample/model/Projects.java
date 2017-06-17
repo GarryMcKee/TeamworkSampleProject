@@ -9,6 +9,10 @@ import java.util.List;
 public class Projects {
     List<Project> projects;
 
+    public List<Project> getProjects() {
+        return projects;
+    }
+
     @Override
     public String toString() {
         String projectList = "";

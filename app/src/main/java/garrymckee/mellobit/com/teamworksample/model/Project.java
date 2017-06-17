@@ -10,10 +10,10 @@ public class Project {
     String name;
     String description;
     String logo;
-    String id;
+    int id;
 
     @Override
     public String toString() {
-        return name + " : " + description;
+        return name + "id: " + id;
     }
 }
