@@ -62,6 +62,8 @@ public class ProjectListFragment extends Fragment implements ProjectListContract
         SimpleDraweeView projectLogo;
         @BindView(R.id.project_name_text_view)
         TextView projectNameTextView;
+        @BindView(R.id.project_desc_text_view)
+        TextView projectDescTextview;
 
         public ProjectViewHolder(View v){
             super(v);
@@ -88,6 +90,7 @@ public class ProjectListFragment extends Fragment implements ProjectListContract
             Project project = mProjects.get(position);
             holder.projectLogo.setImageURI(project.getLogo());
             holder.projectNameTextView.setText(project.getName());
+            holder.projectDescTextview.setText(project.getDescription());
         }
 
         @Override

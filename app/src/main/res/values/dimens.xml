@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="project_logo_size">20dp</dimen>
+    <dimen name ="project_logo_size">56dp</dimen>
+    <dimen name = "project_list_item_height">72dp</dimen>
+    <dimen name="project_list_item_vertical_padding">8dp</dimen>
+    <dimen name="project_list_item_horizontal_padding">16dp</dimen>
 
-    <dimen name= "project_list_item_height">72dp</dimen>
+    <!-- Font Sizes !-->
+    <dimen name="project_list_item_project_name_font"> 16sp</dimen>
+    <dimen name="project_list_item_project_desc_font"> 14sp</dimen>
 </resources>

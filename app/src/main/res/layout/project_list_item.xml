@@ -1,17 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:fresco="http://schemas.android.com/apk/res-auto"
               android:orientation="horizontal"
               android:layout_width="match_parent"
-              android:layout_height="@dimen/project_list_item_height">
+              android:layout_height="@dimen/project_list_item_height"
+    android:paddingStart="@dimen/project_list_item_horizontal_padding"
+    android:paddingEnd="@dimen/project_list_item_horizontal_padding">
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/project_logo"
         android:layout_width="@dimen/project_logo_size"
-        android:layout_height="match_parent"/>
+        android:layout_height="@dimen/project_logo_size"
+        android:layout_gravity="center"
+        fresco:placeholderImage="@drawable/ic_inbox_black_48dp"
+        fresco:placeholderImageScaleType="fitCenter"
+        fresco:roundAsCircle="true"/>
 
-    <TextView
-        android:id="@+id/project_name_text_view"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:paddingStart="@dimen/project_list_item_horizontal_padding">
+
+        <TextView
+            android:id="@+id/project_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorFontPrimary"
+            android:textSize="@dimen/project_list_item_project_name_font"/>
+
+        <TextView
+            android:id="@+id/project_desc_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorFontSecondary"
+            android:textSize="@dimen/project_list_item_project_desc_font"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+
+    </LinearLayout>
 
 </LinearLayout>
