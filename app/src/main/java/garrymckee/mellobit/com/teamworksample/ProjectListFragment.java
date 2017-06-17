@@ -57,7 +57,7 @@ public class ProjectListFragment extends Fragment implements ProjectListContract
         mProjectListView.setAdapter(new ProjectAdapter(mProjects));
     }
 
-    class ProjectViewHolder extends RecyclerView.ViewHolder {
+    protected class ProjectViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         @BindView(R.id.project_logo)
         SimpleDraweeView projectLogo;
         @BindView(R.id.project_name_text_view)
@@ -68,6 +68,12 @@ public class ProjectListFragment extends Fragment implements ProjectListContract
         public ProjectViewHolder(View v){
             super(v);
             ButterKnife.bind(this, v);
+            v.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            //Open project detail view
         }
     }
 
