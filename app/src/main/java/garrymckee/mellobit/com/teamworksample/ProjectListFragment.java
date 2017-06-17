@@ -30,6 +30,7 @@ public class ProjectListFragment extends Fragment implements ProjectListContract
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPresenter = new ProjectListPresenter(this);
+        mPresenter.fetchProjects();
     }
 
     @Override

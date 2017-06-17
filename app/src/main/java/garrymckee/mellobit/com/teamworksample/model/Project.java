@@ -11,4 +11,9 @@ public class Project {
     String description;
     String logo;
     String id;
+
+    @Override
+    public String toString() {
+        return name + " : " + description;
+    }
 }
