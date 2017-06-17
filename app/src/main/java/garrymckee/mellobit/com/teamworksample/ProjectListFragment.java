@@ -18,6 +18,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import garrymckee.mellobit.com.teamworksample.model.Project;
+import garrymckee.mellobit.com.teamworksample.ui.ProjectActivity;
 
 /**
  * Created by Garry on 16/06/2017.
@@ -73,7 +74,8 @@ public class ProjectListFragment extends Fragment implements ProjectListContract
 
         @Override
         public void onClick(View v) {
-            //Open project detail view
+            int projectId = mProjects.get(this.getLayoutPosition()).getId();
+            getActivity().startActivity(ProjectActivity.newIntent(getActivity(), projectId));
         }
     }
 
