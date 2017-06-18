@@ -49,7 +49,7 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPresenter = new ProjectPresenter();
+        mPresenter = new ProjectPresenter(this);
         mProjectId = getArguments().getInt(ARG_PROJECT_ID);
         mValidProject = mProjectId != -1;
     }
@@ -72,9 +72,15 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        mPresenter.fetchPeople(mProjectId);
+    }
+
+    @Override
     public void onPeopleReady(List<Person> people) {
         for (Person person : people) {
-            Log.d("CHECKPEOPLE", person.toString());
+            Log.d("CHECKPEOPLE", person.getFirstName());
         }
     }
 }

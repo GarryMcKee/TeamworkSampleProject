@@ -13,7 +13,7 @@ public interface ProjectContract {
 
     interface ProjectPresenter {
         Project getProject(int projectId);
-        List<Person> getPeople(int projectId);
+        void fetchPeople(int projectId);
     }
 
     interface ProjectFragment {

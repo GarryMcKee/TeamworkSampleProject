@@ -1,5 +1,7 @@
 package garrymckee.mellobit.com.teamworksample.ui;
 
+import android.util.Log;
+
 import java.util.List;
 
 import garrymckee.mellobit.com.teamworksample.api.TeamworkApiService;
@@ -21,6 +23,10 @@ public class ProjectPresenter implements ProjectContract.ProjectPresenter {
 
     private ProjectContract.ProjectFragment mView;
 
+    public ProjectPresenter(ProjectContract.ProjectFragment projectFragment) {
+        mView = projectFragment;
+    }
+
     @Override
     public Project getProject(int projectId) {
         Project project = ProjectRepository.getInstance().getProject(projectId);
@@ -28,7 +34,7 @@ public class ProjectPresenter implements ProjectContract.ProjectPresenter {
     }
 
     @Override
-    public List<Person> getPeople(int projectId) {
+    public void fetchPeople(int projectId) {
         TeamworkApiService apiService = TeamworkApiUtils.getApiService();
         String authString = TeamworkApiUtils.getAuthHeaderString();
         Call<People> call = apiService.getPeopleFromProject(authString, Integer.toString(projectId));
@@ -40,7 +46,7 @@ public class ProjectPresenter implements ProjectContract.ProjectPresenter {
 
             @Override
             public void onFailure(Call<People> call, Throwable t) {
-
+                Log.e("CHECKPERSON", "GetPeople call failed");
             }
         });
     }
