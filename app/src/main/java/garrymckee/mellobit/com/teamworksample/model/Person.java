@@ -24,6 +24,9 @@ public class Person {
     private
     String eMail;
 
+    @SerializedName("avatar-url")
+    String avatarUrl;
+
     public String getFirstName() {
         return firstName;
     }
@@ -38,5 +41,9 @@ public class Person {
 
     public String geteMail() {
         return eMail;
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
     }
 }
