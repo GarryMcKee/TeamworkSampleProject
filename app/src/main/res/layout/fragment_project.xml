@@ -2,16 +2,37 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:paddingStart="@dimen/project_list_item_horizontal_padding"
+              android:paddingEnd="@dimen/project_list_item_horizontal_padding">
 
     <TextView
         android:id="@+id/name_text_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/project_detail_headline_font"
+        android:textColor="@color/colorFontPrimary"/>
 
     <TextView
         android:id="@+id/desc_text_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/project_detail_body_font"
+        android:textColor="@color/colorFontSecondary"
+        android:maxLines="4"
+        android:ellipsize="end"/>
+
+    <TextView
+        android:id="@+id/user_headline_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user_headline_text"
+        android:textSize="@dimen/project_detail_headline_font"
+        android:textColor="@color/colorFontPrimary"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/people_list_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

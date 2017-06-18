@@ -8,4 +8,6 @@
     <!-- Font Sizes !-->
     <dimen name="project_list_item_project_name_font"> 16sp</dimen>
     <dimen name="project_list_item_project_desc_font"> 14sp</dimen>
+    <dimen name="project_detail_headline_font"> 24sp</dimen>
+    <dimen name="project_detail_body_font"> 14sp</dimen>
 </resources>
