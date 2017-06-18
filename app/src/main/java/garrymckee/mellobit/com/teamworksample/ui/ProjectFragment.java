@@ -3,21 +3,25 @@ package garrymckee.mellobit.com.teamworksample.ui;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import garrymckee.mellobit.com.teamworksample.R;
+import garrymckee.mellobit.com.teamworksample.model.Person;
 import garrymckee.mellobit.com.teamworksample.model.Project;
 
 /**
  * Created by Garry on 17/06/2017.
  */
 
-public class ProjectFragment extends Fragment {
+public class ProjectFragment extends Fragment implements ProjectContract.ProjectFragment{
 
     public static final String ARG_PROJECT_ID = "arg_project_id";
 
@@ -65,5 +69,12 @@ public class ProjectFragment extends Fragment {
 
         }
         return v;
+    }
+
+    @Override
+    public void onPeopleReady(List<Person> people) {
+        for (Person person : people) {
+            Log.d("CHECKPEOPLE", person.toString());
+        }
     }
 }

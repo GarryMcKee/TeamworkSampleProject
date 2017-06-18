@@ -1,5 +1,8 @@
 package garrymckee.mellobit.com.teamworksample.ui;
 
+import java.util.List;
+
+import garrymckee.mellobit.com.teamworksample.model.Person;
 import garrymckee.mellobit.com.teamworksample.model.Project;
 
 /**
@@ -10,5 +13,10 @@ public interface ProjectContract {
 
     interface ProjectPresenter {
         Project getProject(int projectId);
+        List<Person> getPeople(int projectId);
+    }
+
+    interface ProjectFragment {
+        void onPeopleReady(List<Person> people);
     }
 }
