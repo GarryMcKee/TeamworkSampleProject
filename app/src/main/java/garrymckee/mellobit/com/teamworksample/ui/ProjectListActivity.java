@@ -1,8 +1,6 @@
-package garrymckee.mellobit.com.teamworksample;
+package garrymckee.mellobit.com.teamworksample.ui;
 
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 public class ProjectListActivity extends SingleFragmentActivity {
 

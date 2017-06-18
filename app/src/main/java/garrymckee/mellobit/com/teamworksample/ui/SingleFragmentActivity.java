@@ -1,10 +1,12 @@
-package garrymckee.mellobit.com.teamworksample;
+package garrymckee.mellobit.com.teamworksample.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+
+import garrymckee.mellobit.com.teamworksample.R;
 
 /**
  * Created by Garry on 16/06/2017.

@@ -1,19 +1,13 @@
-package garrymckee.mellobit.com.teamworksample;
-
-import android.util.Log;
-
-import java.util.List;
+package garrymckee.mellobit.com.teamworksample.ui;
 
 import garrymckee.mellobit.com.teamworksample.api.TeamworkApiService;
 import garrymckee.mellobit.com.teamworksample.api.TeamworkApiUtils;
-import garrymckee.mellobit.com.teamworksample.model.Project;
 import garrymckee.mellobit.com.teamworksample.model.ProjectRepository;
 import garrymckee.mellobit.com.teamworksample.model.Projects;
-import okhttp3.Credentials;
+import garrymckee.mellobit.com.teamworksample.ui.ProjectListContract;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 /**
  * Created by Garry on 16/06/2017.

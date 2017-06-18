@@ -1,4 +1,4 @@
-package garrymckee.mellobit.com.teamworksample;
+package garrymckee.mellobit.com.teamworksample.ui;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package garrymckee.mellobit.com.teamworksample;
+package garrymckee.mellobit.com.teamworksample.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,8 +17,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import garrymckee.mellobit.com.teamworksample.R;
 import garrymckee.mellobit.com.teamworksample.model.Project;
-import garrymckee.mellobit.com.teamworksample.ui.ProjectActivity;
 
 /**
  * Created by Garry on 16/06/2017.
