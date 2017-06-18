@@ -1,5 +1,7 @@
 package garrymckee.mellobit.com.teamworksample.ui;
 
+import android.content.Context;
+
 import java.util.List;
 
 import garrymckee.mellobit.com.teamworksample.model.Person;
@@ -14,6 +16,7 @@ public interface ProjectContract {
     interface ProjectPresenter {
         Project getProject(int projectId);
         void fetchPeople(int projectId);
+        void sendEmail(String[] emails, String subject, Context context);
     }
 
     interface ProjectFragment {

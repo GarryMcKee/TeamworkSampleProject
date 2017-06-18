@@ -1,5 +1,8 @@
 package garrymckee.mellobit.com.teamworksample.ui;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 
 import java.util.List;
@@ -49,5 +52,19 @@ public class ProjectPresenter implements ProjectContract.ProjectPresenter {
                 Log.e("CHECKPERSON", "GetPeople call failed");
             }
         });
+    }
+
+    @Override
+    public void sendEmail(String[] emails, String subject, Context context) {
+        //Todo bug when e-mail app is still open, uses old intent data
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        Log.d("CHECKEMAIL", "Sending to: " + emails[0]);
+        intent.putExtra(Intent.EXTRA_EMAIL, emails);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        if (intent.resolveActivity(context.getPackageManager()) != null) {
+            context.startActivity(intent);
+        }
+
     }
 }

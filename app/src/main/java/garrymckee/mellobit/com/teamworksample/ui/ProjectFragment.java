@@ -1,5 +1,7 @@
 package garrymckee.mellobit.com.teamworksample.ui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -42,7 +44,6 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
     private int mProjectId;
     private boolean mValidProject;
     private ProjectContract.ProjectPresenter mPresenter;
-    private Project mProject;
 
     public static ProjectFragment newInstance(int projectId) {
 
@@ -121,7 +122,9 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
             holder.emailPersonIcon.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d("CHECKEMAIL", "Sending e-mail to: " + person.geteMail());
+                    Project project = mPresenter.getProject(mProjectId);
+                    String[] emails = new String[] {person.geteMail()};
+                    mPresenter.sendEmail(emails, project.getName(), getActivity());
                 }
             });
         }
