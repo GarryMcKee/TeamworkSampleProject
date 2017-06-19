@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TeamWorkSample</string>
     <string name="user_headline_text">People</string>
+    <string name="project_overview_label">Overview</string>
 </resources>

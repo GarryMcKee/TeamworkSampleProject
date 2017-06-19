@@ -1,15 +1,11 @@
 package garrymckee.mellobit.com.teamworksample.ui;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,15 +32,14 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
 
     private static final int PROJECT_DESC_MAX_LINES = 4;
 
-    @BindView(R.id.name_text_view)
-    TextView mNameTextview;
-
     @BindView(R.id.desc_text_view)
     TextView mDescTextView;
 
     @BindView(R.id.people_list_view)
-    RecyclerView peopleListView;
+    RecyclerView mPeopleListView;
 
+    @BindView(R.id.expand_desc_icon)
+    ImageView mExpandDescIcon;
     private int mProjectId;
     private boolean mValidProject;
     private ProjectContract.ProjectPresenter mPresenter;
@@ -79,26 +74,39 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
 
             getActivity().setTitle(projectName);
 
-            mNameTextview.setText(projectName);
             mDescTextView.setText(projectDesc);
             mDescTextView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    if(mDescTextView.getEllipsize() != null) {
-                        mDescTextView.setMaxLines(Integer.MAX_VALUE);
-                        mDescTextView.setEllipsize(null);
-                    } else {
-                        mDescTextView.setMaxLines(PROJECT_DESC_MAX_LINES);
-                        mDescTextView.setEllipsize(TextUtils.TruncateAt.END);
-                    }
+                    toggleOverviewCollapse();
 
                 }
             });
-            peopleListView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+            mExpandDescIcon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    toggleOverviewCollapse();
+                }
+            });
+
+            mPeopleListView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         }
         return v;
+    }
+
+    private void toggleOverviewCollapse() {
+        if(mDescTextView.getEllipsize() != null) {
+            mDescTextView.setMaxLines(Integer.MAX_VALUE);
+            mDescTextView.setEllipsize(null);
+            mExpandDescIcon.setImageResource(R.drawable.ic_keyboard_arrow_up_black_24dp);
+        } else {
+            mDescTextView.setMaxLines(PROJECT_DESC_MAX_LINES);
+            mDescTextView.setEllipsize(TextUtils.TruncateAt.END);
+            mExpandDescIcon.setImageResource(R.drawable.ic_keyboard_arrow_down_black_24dp);
+        }
     }
 
     @Override
@@ -110,7 +118,7 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
     @Override
     public void onPeopleReady(List<Person> people) {
         PeopleAdapter adapter = new PeopleAdapter(people);
-        peopleListView.setAdapter(adapter);
+        mPeopleListView.setAdapter(adapter);
 
     }
 

@@ -6,26 +6,50 @@
               android:paddingStart="@dimen/project_list_item_horizontal_padding"
               android:paddingEnd="@dimen/project_list_item_horizontal_padding">
 
-    <TextView
-        android:id="@+id/name_text_view"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/overview_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/headline_font_size"
-        android:textColor="@color/colorFontPrimary"/>
+        android:layout_marginTop="@dimen/project_list_item_vertical_padding">
+
+        <TextView
+            android:id="@+id/overview_label_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:textSize="@dimen/headline_font_size"
+            android:textColor="@color/colorFontPrimary"
+            android:text="@string/project_overview_label"/>
+
+        <ImageView
+            android:id="@+id/expand_desc_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_keyboard_arrow_down_black_24dp"/>
+
+
+    </RelativeLayout>
+
 
     <TextView
         android:id="@+id/desc_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/project_list_item_vertical_padding"
         android:textSize="@dimen/secondary_font_size"
         android:textColor="@color/colorFontSecondary"
         android:maxLines="4"
         android:ellipsize="end"/>
 
+
+
     <TextView
         android:id="@+id/user_headline_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/project_list_item_vertical_padding"
         android:fontFamily="sans-serif"
         android:text="@string/user_headline_text"
         android:textColor="@color/colorFontPrimary"
