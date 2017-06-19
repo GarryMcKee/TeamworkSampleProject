@@ -10,8 +10,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class TeamworkApiUtils {
 
-    public static final String TEAMWORK_API_BASE_URL = "https://yat.teamwork.com";
-    public static final String TEAMWORK_API_KEY = "april294unreal";
+    private static final String TEAMWORK_API_BASE_URL = "https://yat.teamwork.com";
+    private static final String TEAMWORK_API_KEY = "april294unreal";
 
     public static TeamworkApiService getApiService() {
         Retrofit retrofit = new Retrofit.Builder()
