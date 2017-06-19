@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,8 @@ import garrymckee.mellobit.com.teamworksample.model.Project;
 public class ProjectFragment extends Fragment implements ProjectContract.ProjectFragment{
 
     public static final String ARG_PROJECT_ID = "arg_project_id";
+
+    private static final int PROJECT_DESC_MAX_LINES = 4;
 
     @BindView(R.id.name_text_view)
     TextView mNameTextview;
@@ -75,6 +78,20 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
 
             mNameTextview.setText(projectName);
             mDescTextView.setText(projectDesc);
+            mDescTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if(mDescTextView.getEllipsize() != null) {
+                        mDescTextView.setMaxLines(Integer.MAX_VALUE);
+                        mDescTextView.setEllipsize(null);
+                    } else {
+                        mDescTextView.setMaxLines(PROJECT_DESC_MAX_LINES);
+                        mDescTextView.setEllipsize(TextUtils.TruncateAt.END);
+                    }
+
+                }
+            });
             peopleListView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         }
