@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -75,6 +76,8 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
             Project project = mPresenter.getProject(mProjectId);
             String projectName = project.getName();
             String projectDesc = project.getDescription();
+
+            getActivity().setTitle(projectName);
 
             mNameTextview.setText(projectName);
             mDescTextView.setText(projectDesc);
