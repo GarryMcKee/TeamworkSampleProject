@@ -10,14 +10,14 @@
         android:id="@+id/name_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/project_detail_headline_font"
+        android:textSize="@dimen/headline_font_size"
         android:textColor="@color/colorFontPrimary"/>
 
     <TextView
         android:id="@+id/desc_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/project_detail_body_font"
+        android:textSize="@dimen/secondary_font_size"
         android:textColor="@color/colorFontSecondary"
         android:maxLines="4"
         android:ellipsize="end"/>
@@ -26,9 +26,10 @@
         android:id="@+id/user_headline_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
         android:text="@string/user_headline_text"
-        android:textSize="@dimen/project_detail_headline_font"
-        android:textColor="@color/colorFontPrimary"/>
+        android:textColor="@color/colorFontPrimary"
+        android:textSize="@dimen/headline_font_size"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/people_list_view"

@@ -6,8 +6,8 @@
     <dimen name="project_list_item_horizontal_padding">16dp</dimen>
 
     <!-- Font Sizes !-->
-    <dimen name="project_list_item_project_name_font"> 16sp</dimen>
-    <dimen name="project_list_item_project_desc_font"> 14sp</dimen>
-    <dimen name="project_detail_headline_font"> 24sp</dimen>
-    <dimen name="project_detail_body_font"> 14sp</dimen>
+    <dimen name="primary_font_size"> 16sp</dimen>
+    <dimen name="secondary_font_size"> 14sp</dimen>
+    <dimen name="headline_font_size"> 24sp</dimen>
+
 </resources>
