@@ -48,8 +48,20 @@ public class ProjectListFragment extends Fragment implements ProjectListContract
         if(!Fresco.hasBeenInitialized()) {
             Fresco.initialize(getActivity());
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         mPresenter = new ProjectListPresenter(this);
         mPresenter.fetchProjects();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mPresenter.detachView();
+        mPresenter = null;
     }
 
     @Override

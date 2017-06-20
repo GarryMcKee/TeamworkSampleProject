@@ -16,5 +16,6 @@ public interface ProjectListContract {
 
     interface ProjectListPresenter {
         void fetchProjects();
+        void detachView();
     }
 }

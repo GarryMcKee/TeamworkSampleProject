@@ -1,5 +1,7 @@
 package garrymckee.mellobit.com.teamworksample.ui;
 
+import android.util.Log;
+
 import garrymckee.mellobit.com.teamworksample.api.TeamworkApiService;
 import garrymckee.mellobit.com.teamworksample.api.TeamworkApiUtils;
 import garrymckee.mellobit.com.teamworksample.model.ProjectRepository;
@@ -16,6 +18,7 @@ import retrofit2.Response;
 public class ProjectListPresenter implements ProjectListContract.ProjectListPresenter{
 
     private ProjectListContract.ProjectListFragment mView;
+    private static final String LOG_TAG = ProjectListPresenter.class.getSimpleName();
 
     public ProjectListPresenter(ProjectListContract.ProjectListFragment view) {
         mView = view;
@@ -29,8 +32,14 @@ public class ProjectListPresenter implements ProjectListContract.ProjectListPres
         call.enqueue(new Callback<Projects>() {
             @Override
             public void onResponse(Call<Projects> call, Response<Projects> response) {
-                ProjectRepository.getInstance().setProjects(response.body().getProjects());
-                mView.onProjectsReady(ProjectRepository.getInstance().getProjects());
+
+                if(mView != null) {
+                    ProjectRepository.getInstance().setProjects(response.body().getProjects());
+                    mView.onProjectsReady(ProjectRepository.getInstance().getProjects());
+                } else {
+                    Log.e(LOG_TAG, "Null view");
+                }
+
             }
 
             @Override
@@ -38,5 +47,10 @@ public class ProjectListPresenter implements ProjectListContract.ProjectListPres
 
             }
         });
+    }
+
+    @Override
+    public void detachView() {
+        mView = null;
     }
 }
