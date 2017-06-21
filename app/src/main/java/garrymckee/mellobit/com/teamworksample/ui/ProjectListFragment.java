@@ -37,8 +37,6 @@ public class ProjectListFragment extends Fragment implements ProjectListContract
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_project_list, container, false);
         ButterKnife.bind(this, v);
-
-        mProjectListView.setLayoutManager(new LinearLayoutManager(getActivity()));
         return v;
     }
 
@@ -55,6 +53,7 @@ public class ProjectListFragment extends Fragment implements ProjectListContract
         super.onResume();
         mPresenter = new ProjectListPresenter(this);
         mPresenter.fetchProjects();
+        setupUi();
     }
 
     @Override
@@ -68,6 +67,16 @@ public class ProjectListFragment extends Fragment implements ProjectListContract
     public void onProjectsReady(List<Project> projects) {
         mProjects = projects;
         mProjectListView.setAdapter(new ProjectAdapter(mProjects));
+    }
+
+    @Override
+    public void setupUi() {
+        mProjectListView.setLayoutManager(new LinearLayoutManager(getActivity()));
+    }
+
+    @Override
+    public void showErrorState() {
+
     }
 
     protected class ProjectViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{

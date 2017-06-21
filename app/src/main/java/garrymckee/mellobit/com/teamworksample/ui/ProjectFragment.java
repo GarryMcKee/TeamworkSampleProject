@@ -86,7 +86,7 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
         return v;
     }
 
-    private void setupUi(){
+    public void setupUi(){
         Project project = mPresenter.getProject(mProjectId);
         String projectName = project.getName();
         String projectDesc = project.getDescription();
@@ -111,6 +111,11 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
         });
 
         mPeopleListView.setLayoutManager(new LinearLayoutManager(getActivity()));
+    }
+
+    @Override
+    public void showErrorState() {
+
     }
 
     private void toggleOverviewCollapse() {

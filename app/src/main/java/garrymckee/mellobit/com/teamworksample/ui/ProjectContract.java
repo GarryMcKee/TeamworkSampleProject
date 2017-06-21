@@ -20,7 +20,7 @@ public interface ProjectContract {
         void detachView();
     }
 
-    interface ProjectFragment {
+    interface ProjectFragment extends BaseView {
         void onPeopleReady(List<Person> people);
     }
 }
