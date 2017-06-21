@@ -17,6 +17,7 @@ public interface ProjectContract {
         Project getProject(int projectId);
         void fetchPeople(int projectId);
         void sendEmail(String[] emails, String subject, Context context);
+        void detachView();
     }
 
     interface ProjectFragment {

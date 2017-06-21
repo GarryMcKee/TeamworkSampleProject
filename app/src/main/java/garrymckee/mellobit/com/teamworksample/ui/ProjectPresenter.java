@@ -24,6 +24,8 @@ import retrofit2.Response;
 
 public class ProjectPresenter implements ProjectContract.ProjectPresenter {
 
+    private static final String LOG_TAG = ProjectPresenter.class.getSimpleName();
+
     private ProjectContract.ProjectFragment mView;
 
     public ProjectPresenter(ProjectContract.ProjectFragment projectFragment) {
@@ -44,7 +46,12 @@ public class ProjectPresenter implements ProjectContract.ProjectPresenter {
         call.enqueue(new Callback<People>() {
             @Override
             public void onResponse(Call<People> call, Response<People> response) {
-                mView.onPeopleReady(response.body().getPeople());
+                if(mView != null) {
+                    mView.onPeopleReady(response.body().getPeople());
+                } else {
+                    Log.e(LOG_TAG, "View is null");
+                }
+
             }
 
             @Override
@@ -66,5 +73,10 @@ public class ProjectPresenter implements ProjectContract.ProjectPresenter {
             context.startActivity(intent);
         }
 
+    }
+
+    @Override
+    public void detachView() {
+        mView = null;
     }
 }

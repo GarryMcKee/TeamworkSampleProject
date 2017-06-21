@@ -41,7 +41,6 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
     @BindView(R.id.expand_desc_icon)
     ImageView mExpandDescIcon;
     private int mProjectId;
-    private boolean mValidProject;
     private ProjectContract.ProjectPresenter mPresenter;
 
     public static ProjectFragment newInstance(int projectId) {
@@ -57,9 +56,21 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         mPresenter = new ProjectPresenter(this);
         mProjectId = getArguments().getInt(ARG_PROJECT_ID);
-        mValidProject = mProjectId != -1;
+        mPresenter.fetchPeople(mProjectId);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mPresenter.detachView();
+        mPresenter = null;
     }
 
     @Nullable
@@ -67,33 +78,32 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_project, container, false);
         ButterKnife.bind(this, v);
-        if(mValidProject) {
-            Project project = mPresenter.getProject(mProjectId);
-            String projectName = project.getName();
-            String projectDesc = project.getDescription();
 
-            getActivity().setTitle(projectName);
+        Project project = mPresenter.getProject(mProjectId);
+        String projectName = project.getName();
+        String projectDesc = project.getDescription();
 
-            mDescTextView.setText(projectDesc);
-            mDescTextView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+        getActivity().setTitle(projectName);
 
-                    toggleOverviewCollapse();
+        mDescTextView.setText(projectDesc);
+        mDescTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-                }
-            });
+                toggleOverviewCollapse();
 
-            mExpandDescIcon.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    toggleOverviewCollapse();
-                }
-            });
+            }
+        });
 
-            mPeopleListView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mExpandDescIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toggleOverviewCollapse();
+            }
+        });
 
-        }
+        mPeopleListView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
         return v;
     }
 
@@ -107,12 +117,6 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
             mDescTextView.setEllipsize(TextUtils.TruncateAt.END);
             mExpandDescIcon.setImageResource(R.drawable.ic_keyboard_arrow_down_black_24dp);
         }
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        mPresenter.fetchPeople(mProjectId);
     }
 
     @Override
