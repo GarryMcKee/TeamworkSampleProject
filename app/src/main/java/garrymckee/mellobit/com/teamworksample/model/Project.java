@@ -5,8 +5,6 @@ package garrymckee.mellobit.com.teamworksample.model;
  */
 
 public class Project {
-    private Company company;
-    private boolean starred;
     private String name;
     private String description;
     private String logo;
@@ -15,14 +13,6 @@ public class Project {
     @Override
     public String toString() {
         return getName() + "id: " + getId();
-    }
-
-    public Company getCompany() {
-        return company;
-    }
-
-    public boolean isStarred() {
-        return starred;
     }
 
     public String getName() {
