@@ -35,9 +35,6 @@ public class ProjectListFragment extends Fragment implements ProjectListContract
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(!Fresco.hasBeenInitialized()) {
-            Fresco.initialize(getActivity());
-        }
     }
 
     @Nullable
