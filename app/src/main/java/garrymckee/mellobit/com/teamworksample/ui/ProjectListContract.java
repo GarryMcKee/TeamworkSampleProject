@@ -10,9 +10,8 @@ import garrymckee.mellobit.com.teamworksample.model.Project;
 
 public interface ProjectListContract {
 
-    interface ProjectListPresenter {
+    interface ProjectListPresenter extends BasePresenter{
         void fetchProjects();
-        void detachView();
     }
 
     interface ProjectListFragment extends BaseView {

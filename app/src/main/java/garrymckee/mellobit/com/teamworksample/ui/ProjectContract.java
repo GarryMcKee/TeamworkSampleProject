@@ -13,11 +13,10 @@ import garrymckee.mellobit.com.teamworksample.model.Project;
 
 public interface ProjectContract {
 
-    interface ProjectPresenter {
+    interface ProjectPresenter extends BasePresenter{
         Project getProject(int projectId);
         void fetchPeople(int projectId);
         void sendEmail(String[] emails, String subject, Context context);
-        void detachView();
     }
 
     interface ProjectFragment extends BaseView {
