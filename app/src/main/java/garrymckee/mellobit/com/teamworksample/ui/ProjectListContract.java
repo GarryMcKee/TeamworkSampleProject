@@ -15,7 +15,7 @@ public interface ProjectListContract {
         int getProjectId(int position);
     }
 
-    interface ProjectListFragment extends BaseView {
+    interface ProjectListView extends BaseView {
         void onProjectsReady(List<Project> projects);
     }
 }

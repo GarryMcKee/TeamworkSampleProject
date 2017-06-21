@@ -22,10 +22,10 @@ public class ProjectPresenter implements ProjectContract.ProjectPresenter {
 
     private static final String LOG_TAG = ProjectPresenter.class.getSimpleName();
 
-    private ProjectContract.ProjectFragment mView;
+    private ProjectContract.ProjectView mView;
 
-    public ProjectPresenter(ProjectContract.ProjectFragment projectFragment) {
-        mView = projectFragment;
+    public ProjectPresenter(ProjectContract.ProjectView view) {
+        mView = view;
     }
 
     @Override

@@ -27,11 +27,14 @@ import garrymckee.mellobit.com.teamworksample.model.Project;
  * Created by Garry on 17/06/2017.
  */
 
-public class ProjectFragment extends Fragment implements ProjectContract.ProjectFragment{
+public class ProjectFragment extends Fragment implements ProjectContract.ProjectView {
 
     public static final String ARG_PROJECT_ID = "arg_project_id";
 
     private static final int PROJECT_DESC_MAX_LINES = 4;
+
+    private int mProjectId;
+    private ProjectContract.ProjectPresenter mPresenter;
 
     @BindView(R.id.desc_text_view)
     TextView mDescTextView;
@@ -41,8 +44,6 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
 
     @BindView(R.id.expand_desc_icon)
     ImageView mExpandDescIcon;
-    private int mProjectId;
-    private ProjectContract.ProjectPresenter mPresenter;
 
     public static ProjectFragment newInstance(int projectId) {
 
@@ -57,6 +58,14 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_project, container, false);
+        ButterKnife.bind(this, v);
+        return v;
     }
 
     @Override
@@ -79,13 +88,6 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
         mPresenter = null;
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_project, container, false);
-        ButterKnife.bind(this, v);
-        return v;
-    }
 
     public void setupUi(){
         Project project = mPresenter.getProject(mProjectId);

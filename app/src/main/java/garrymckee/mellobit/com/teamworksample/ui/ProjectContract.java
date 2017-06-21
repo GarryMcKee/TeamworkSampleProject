@@ -19,7 +19,7 @@ public interface ProjectContract {
         void sendEmail(String[] emails, String subject, Context context);
     }
 
-    interface ProjectFragment extends BaseView {
+    interface ProjectView extends BaseView {
         void onPeopleReady(List<Person> people);
     }
 }

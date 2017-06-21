@@ -25,20 +25,12 @@ import garrymckee.mellobit.com.teamworksample.model.Project;
  * Created by Garry on 16/06/2017.
  */
 
-public class ProjectListFragment extends Fragment implements ProjectListContract.ProjectListFragment{
+public class ProjectListFragment extends Fragment implements ProjectListContract.ProjectListView {
 
     private ProjectListPresenter mPresenter;
 
     @BindView(R.id.project_list_view)
     RecyclerView mProjectListView;
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_project_list, container, false);
-        ButterKnife.bind(this, v);
-        return v;
-    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,6 +38,14 @@ public class ProjectListFragment extends Fragment implements ProjectListContract
         if(!Fresco.hasBeenInitialized()) {
             Fresco.initialize(getActivity());
         }
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_project_list, container, false);
+        ButterKnife.bind(this, v);
+        return v;
     }
 
     @Override

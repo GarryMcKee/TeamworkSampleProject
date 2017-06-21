@@ -16,10 +16,10 @@ import retrofit2.Response;
 
 public class ProjectListPresenter implements ProjectListContract.ProjectListPresenter{
 
-    private ProjectListContract.ProjectListFragment mView;
+    private ProjectListContract.ProjectListView mView;
     private static final String LOG_TAG = ProjectListPresenter.class.getSimpleName();
 
-    public ProjectListPresenter(ProjectListContract.ProjectListFragment view) {
+    public ProjectListPresenter(ProjectListContract.ProjectListView view) {
         mView = view;
     }
 
