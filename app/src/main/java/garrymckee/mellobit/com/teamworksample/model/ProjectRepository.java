@@ -1,5 +1,7 @@
 package garrymckee.mellobit.com.teamworksample.model;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,28 +13,33 @@ import java.util.List;
 public class ProjectRepository {
 
     private HashMap<Integer, Project> mProjects;
-    private static ProjectRepository mInstance;
+
+    private static ProjectRepository sInstance;
 
     private ProjectRepository() {
-
     }
 
     public static ProjectRepository getInstance() {
 
-        if(mInstance == null) {
-            mInstance = new ProjectRepository();
-            return mInstance;
+        if(sInstance == null) {
+            sInstance = new ProjectRepository();
+            return sInstance;
         } else {
-            return mInstance;
+            return sInstance;
         }
     }
 
-    public Project getProject(int id) {
+    public Project getProjectById(int id) {
         return mProjects.get(id);
     }
 
     public List<Project> getProjects() {
-        return new ArrayList<Project>(mProjects.values());
+        if(mProjects == null) {
+            return null;
+        } else {
+            return new ArrayList<>(mProjects.values());
+        }
+
     }
 
     public void setProjects(List<Project> projects) {

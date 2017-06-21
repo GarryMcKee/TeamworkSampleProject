@@ -12,6 +12,7 @@ public interface ProjectListContract {
 
     interface ProjectListPresenter extends BasePresenter{
         void fetchProjects();
+        int getProjectId(int position);
     }
 
     interface ProjectListFragment extends BaseView {

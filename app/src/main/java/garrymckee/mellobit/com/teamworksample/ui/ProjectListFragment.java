@@ -27,7 +27,6 @@ import garrymckee.mellobit.com.teamworksample.model.Project;
 public class ProjectListFragment extends Fragment implements ProjectListContract.ProjectListFragment{
 
     private ProjectListPresenter mPresenter;
-    private List<Project> mProjects;
 
     @BindView(R.id.project_list_view)
     RecyclerView mProjectListView;
@@ -65,8 +64,7 @@ public class ProjectListFragment extends Fragment implements ProjectListContract
 
     @Override
     public void onProjectsReady(List<Project> projects) {
-        mProjects = projects;
-        mProjectListView.setAdapter(new ProjectAdapter(mProjects));
+        mProjectListView.setAdapter(new ProjectAdapter(projects));
     }
 
     @Override
@@ -95,7 +93,7 @@ public class ProjectListFragment extends Fragment implements ProjectListContract
 
         @Override
         public void onClick(View v) {
-            int projectId = mProjects.get(this.getLayoutPosition()).getId();
+            int projectId = mPresenter.getProjectId(this.getLayoutPosition());
             getActivity().startActivity(ProjectActivity.newIntent(getActivity(), projectId));
         }
     }

@@ -6,7 +6,6 @@ import garrymckee.mellobit.com.teamworksample.api.TeamworkApiService;
 import garrymckee.mellobit.com.teamworksample.api.TeamworkApiUtils;
 import garrymckee.mellobit.com.teamworksample.model.ProjectRepository;
 import garrymckee.mellobit.com.teamworksample.model.Projects;
-import garrymckee.mellobit.com.teamworksample.ui.ProjectListContract;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -26,6 +25,30 @@ public class ProjectListPresenter implements ProjectListContract.ProjectListPres
 
     @Override
     public void fetchProjects() {
+        //Projects will only be null if they have not been already fetched in the current app session
+        if(ProjectRepository.getInstance().getProjects() != null) {
+            getProjectsFromLocal();
+        } else {
+            getProjectsFromRemote();
+        }
+
+    }
+
+    @Override
+    public int getProjectId(int position) {
+        return ProjectRepository.getInstance().getProjects().get(position).getId();
+    }
+
+    private void getProjectsFromLocal() {
+        if(mView != null) {
+            mView.onProjectsReady(ProjectRepository.getInstance().getProjects());
+        } else {
+            Log.e(LOG_TAG, "Null view");
+        }
+
+    }
+
+    private void getProjectsFromRemote() {
         TeamworkApiService apiService = TeamworkApiUtils.getApiService();
         String authString = TeamworkApiUtils.getAuthHeaderString();
         Call<Projects> call = apiService.listProjects(authString);
@@ -44,7 +67,7 @@ public class ProjectListPresenter implements ProjectListContract.ProjectListPres
 
             @Override
             public void onFailure(Call<Projects> call, Throwable t) {
-
+                mView.showErrorState();
             }
         });
     }
