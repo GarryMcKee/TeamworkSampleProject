@@ -64,6 +64,11 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
         mPresenter = new ProjectPresenter(this);
         mProjectId = getArguments().getInt(ARG_PROJECT_ID);
         mPresenter.fetchPeople(mProjectId);
+
+        if (mPresenter != null) {
+            setupUi();
+        }
+
     }
 
     @Override
@@ -78,7 +83,10 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_project, container, false);
         ButterKnife.bind(this, v);
+        return v;
+    }
 
+    private void setupUi(){
         Project project = mPresenter.getProject(mProjectId);
         String projectName = project.getName();
         String projectDesc = project.getDescription();
@@ -103,8 +111,6 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
         });
 
         mPeopleListView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-        return v;
     }
 
     private void toggleOverviewCollapse() {
@@ -181,4 +187,5 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
             ButterKnife.bind(this, v);
         }
     }
+
 }
