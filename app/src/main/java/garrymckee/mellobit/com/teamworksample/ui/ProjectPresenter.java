@@ -52,7 +52,8 @@ public class ProjectPresenter implements ProjectContract.ProjectPresenter {
 
             @Override
             public void onFailure(Call<People> call, Throwable t) {
-                Log.e("CHECKPERSON", "GetPeople call failed");
+                Log.e(LOG_TAG, "GetPeople call failed");
+                mView.showErrorState();
             }
         });
     }

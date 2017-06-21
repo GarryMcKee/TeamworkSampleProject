@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -115,7 +116,11 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
 
     @Override
     public void showErrorState() {
-
+        Toast.makeText(
+                getActivity(),
+                R.string.general_error,
+                Toast.LENGTH_LONG)
+                .show();
     }
 
     private void toggleOverviewCollapse() {

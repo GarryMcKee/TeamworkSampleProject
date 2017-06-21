@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -74,7 +75,11 @@ public class ProjectListFragment extends Fragment implements ProjectListContract
 
     @Override
     public void showErrorState() {
-
+        Toast.makeText(
+                getActivity(),
+                R.string.general_error,
+                Toast.LENGTH_LONG)
+                .show();
     }
 
     protected class ProjectViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
