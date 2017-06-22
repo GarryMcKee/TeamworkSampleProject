@@ -10,6 +10,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class TeamworkApiUtils {
 
+    //Ideally secret api keys should be stored in a BuildConfig file or similar
+    //Left here for simplicity
     private static final String TEAMWORK_API_BASE_URL = "https://yat.teamwork.com";
     private static final String TEAMWORK_API_KEY = "april294unreal";
 

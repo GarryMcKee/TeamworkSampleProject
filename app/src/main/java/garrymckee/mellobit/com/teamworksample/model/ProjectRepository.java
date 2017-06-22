@@ -33,6 +33,7 @@ public class ProjectRepository {
         return mProjects.get(id);
     }
 
+    //Return the hashmap of objects as a list for use in list adapters etc...
     public List<Project> getProjects() {
         if(mProjects == null) {
             return null;
