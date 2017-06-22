@@ -1,9 +1,5 @@
-package garrymckee.mellobit.com.teamworksample.ui;
+package garrymckee.mellobit.com.teamworksample.projectdetail;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 
@@ -13,6 +9,7 @@ import garrymckee.mellobit.com.teamworksample.model.People;
 import garrymckee.mellobit.com.teamworksample.model.Person;
 import garrymckee.mellobit.com.teamworksample.model.Project;
 import garrymckee.mellobit.com.teamworksample.model.ProjectRepository;
+import garrymckee.mellobit.com.teamworksample.profilesheet.ProfileSheetFragment;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

@@ -1,4 +1,4 @@
-package garrymckee.mellobit.com.teamworksample.ui;
+package garrymckee.mellobit.com.teamworksample.projectlist;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;

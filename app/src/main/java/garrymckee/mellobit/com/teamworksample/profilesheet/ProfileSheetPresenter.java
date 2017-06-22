@@ -1,4 +1,4 @@
-package garrymckee.mellobit.com.teamworksample.ui;
+package garrymckee.mellobit.com.teamworksample.profilesheet;
 
 import android.content.Context;
 import android.content.Intent;

@@ -1,4 +1,4 @@
-package garrymckee.mellobit.com.teamworksample.ui;
+package garrymckee.mellobit.com.teamworksample.projectlist;
 
 import android.content.Context;
 import android.util.Log;
@@ -7,6 +7,7 @@ import garrymckee.mellobit.com.teamworksample.api.TeamworkApiService;
 import garrymckee.mellobit.com.teamworksample.api.TeamworkApiUtils;
 import garrymckee.mellobit.com.teamworksample.model.ProjectRepository;
 import garrymckee.mellobit.com.teamworksample.model.Projects;
+import garrymckee.mellobit.com.teamworksample.projectdetail.ProjectActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

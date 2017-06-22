@@ -1,4 +1,4 @@
-package garrymckee.mellobit.com.teamworksample.ui;
+package garrymckee.mellobit.com.teamworksample.baseclasses;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
