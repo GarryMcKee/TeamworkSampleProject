@@ -165,6 +165,9 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
     }
 
     protected class PersonHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+        //The need to pass a Person object to this view holder ideally would have been circumvented by creating
+        //a separate local/remote data repository for the users allowing the presenter to get the required data
+        //for the profile sheet via a mapping of the view holders position to the id of the user selected
 
         Person mPerson;
 
@@ -188,7 +191,6 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
             if(mPerson != null) {
                 mPresenter.showProfileSheet(getFragmentManager(), mPerson);
             }
-
         }
     }
 
