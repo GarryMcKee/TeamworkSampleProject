@@ -1,6 +1,7 @@
 package garrymckee.mellobit.com.teamworksample.ui;
 
 import android.content.Context;
+import android.support.v4.app.FragmentManager;
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ public interface ProjectContract {
         Project getProject(int projectId);
         void fetchPeople(int projectId);
         void sendEmail(String[] emails, String subject, Context context);
+        void showProfileSheet(FragmentManager fragmentManager, Person person);
     }
 
     interface ProjectView extends BaseView {

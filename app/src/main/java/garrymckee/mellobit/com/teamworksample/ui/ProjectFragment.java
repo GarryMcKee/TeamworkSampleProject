@@ -3,6 +3,7 @@ package garrymckee.mellobit.com.teamworksample.ui;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -153,7 +154,7 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
         }
 
         @Override
-        public  PersonHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public PersonHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater inflater = LayoutInflater.from(getActivity());
             return new PersonHolder(inflater.inflate(R.layout.people_list_item, parent, false));
         }
@@ -168,6 +169,7 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
 
             holder.personAvatarView.setImageURI(person.getAvatarUrl());
             holder.personNameTextView.setText(displayName);
+            holder.setPerson(person);
 
             holder.emailPersonIcon.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -185,7 +187,9 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
         }
     }
 
-    protected class PersonHolder extends RecyclerView.ViewHolder {
+    protected class PersonHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+        Person mPerson;
 
         @BindView(R.id.person_avatar_view)
         SimpleDraweeView personAvatarView;
@@ -197,6 +201,19 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
         public PersonHolder(View v) {
             super(v);
             ButterKnife.bind(this, v);
+            v.setOnClickListener(this);
+        }
+
+        public void setPerson(Person person) {
+            mPerson = person;
+        }
+
+        @Override
+        public void onClick(View v) {
+            if(mPerson != null) {
+                mPresenter.showProfileSheet(getFragmentManager(), mPerson);
+            }
+
         }
     }
 

@@ -3,11 +3,14 @@ package garrymckee.mellobit.com.teamworksample.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 
 import garrymckee.mellobit.com.teamworksample.api.TeamworkApiService;
 import garrymckee.mellobit.com.teamworksample.api.TeamworkApiUtils;
 import garrymckee.mellobit.com.teamworksample.model.People;
+import garrymckee.mellobit.com.teamworksample.model.Person;
 import garrymckee.mellobit.com.teamworksample.model.Project;
 import garrymckee.mellobit.com.teamworksample.model.ProjectRepository;
 import retrofit2.Call;
@@ -60,7 +63,6 @@ public class ProjectPresenter implements ProjectContract.ProjectPresenter {
 
     @Override
     public void sendEmail(String[] emails, String subject, Context context) {
-        //Todo bug when e-mail app is still open, uses old intent data
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:"));
         intent.putExtra(Intent.EXTRA_EMAIL, emails);
@@ -69,6 +71,12 @@ public class ProjectPresenter implements ProjectContract.ProjectPresenter {
             context.startActivity(intent);
         }
 
+    }
+
+    @Override
+    public void showProfileSheet(FragmentManager fragmentManager, Person person) {
+        ProfileSheetFragment profileSheetFragment = ProfileSheetFragment.newInstance(person);
+        profileSheetFragment.show(fragmentManager, "TESTTAG");
     }
 
     @Override

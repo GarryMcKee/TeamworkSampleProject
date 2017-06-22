@@ -24,6 +24,10 @@ public class Person {
     private
     String eMail;
 
+    @SerializedName("phone-number-mobile")
+    private
+    String mobileNumber;
+
     @SerializedName("avatar-url")
     String avatarUrl;
 
@@ -43,7 +47,15 @@ public class Person {
         return eMail;
     }
 
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
     public String getAvatarUrl() {
         return avatarUrl;
+    }
+
+    public String getFullName() {
+        return firstName + " " + lastName;
     }
 }
