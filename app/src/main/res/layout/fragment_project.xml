@@ -7,13 +7,11 @@
               android:paddingEnd="@dimen/project_list_item_horizontal_padding">
 
     <RelativeLayout
-        android:id="@+id/overview_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/project_list_item_vertical_padding">
 
         <TextView
-            android:id="@+id/overview_label_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -47,7 +45,6 @@
 
 
     <TextView
-        android:id="@+id/user_headline_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/project_list_item_vertical_padding"

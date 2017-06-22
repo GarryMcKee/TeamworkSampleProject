@@ -5,5 +5,4 @@
     <color name="colorAccent">#65d656</color>
     <color name="colorFontPrimary">#000000</color>
     <color name= "colorFontSecondary">#777777</color>
-    <color name= "colorDisabledButonTint">#AAAAAA</color>
 </resources>
