@@ -6,5 +6,5 @@ package garrymckee.mellobit.com.teamworksample.baseclasses;
 
 public interface BaseView {
     void setupUi();
-    void showErrorState();
+    void showGeneralError();
 }

@@ -75,7 +75,7 @@ public class ProjectListPresenter implements ProjectListContract.ProjectListPres
             @Override
             public void onFailure(Call<Projects> call, Throwable t) {
                 Log.e(LOG_TAG, "GetProjects call failed");
-                mView.showErrorState();
+                mView.showGeneralError();
             }
         });
     }

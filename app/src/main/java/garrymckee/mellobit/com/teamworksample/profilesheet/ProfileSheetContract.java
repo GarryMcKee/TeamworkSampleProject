@@ -18,6 +18,6 @@ public interface ProfileSheetContract {
     }
 
     interface ProfileSheetView extends BaseView {
-
+        void showFeatureNotAvailableError();
     }
 }

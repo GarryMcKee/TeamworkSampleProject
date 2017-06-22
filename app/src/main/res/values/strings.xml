@@ -3,5 +3,6 @@
     <string name="user_headline_text">People</string>
     <string name="project_overview_label">Overview</string>
     <string name="general_error">Something went wrong, please check your connection and try again.</string>
+    <string name="feature_not_available_error">Sorry, this feature is not available on your device.</string>
     <string name="close_profile_sheet">Close</string>
 </resources>

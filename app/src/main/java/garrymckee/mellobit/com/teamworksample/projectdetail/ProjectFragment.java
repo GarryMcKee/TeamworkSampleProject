@@ -117,7 +117,7 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
     }
 
     @Override
-    public void showErrorState() {
+    public void showGeneralError() {
         Toast.makeText(
                 getActivity(),
                 R.string.general_error,

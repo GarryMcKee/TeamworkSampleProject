@@ -27,6 +27,8 @@ public class ProfileSheetPresenter implements ProfileSheetContract.ProfileSheetP
         intent.setData(Uri.parse("tel:" + number));
         if(intent.resolveActivity(context.getPackageManager()) != null) {
             context.startActivity(intent);
+        } else {
+            mView.showFeatureNotAvailableError();
         }
 
     }
@@ -37,6 +39,8 @@ public class ProfileSheetPresenter implements ProfileSheetContract.ProfileSheetP
         intent.setData(Uri.parse("smsto:" + number));  // This ensures only SMS apps respond
         if (intent.resolveActivity(context.getPackageManager()) != null) {
             context.startActivity(intent);
+        } else {
+            mView.showFeatureNotAvailableError();
         }
 
     }
@@ -48,6 +52,8 @@ public class ProfileSheetPresenter implements ProfileSheetContract.ProfileSheetP
         intent.putExtra(Intent.EXTRA_EMAIL, emails);
         if (intent.resolveActivity(context.getPackageManager()) != null) {
             context.startActivity(intent);
+        } else {
+            mView.showFeatureNotAvailableError();
         }
 
     }

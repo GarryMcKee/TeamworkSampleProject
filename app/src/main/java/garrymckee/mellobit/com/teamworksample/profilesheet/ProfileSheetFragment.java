@@ -148,6 +148,12 @@ public class ProfileSheetFragment extends DialogFragment implements ProfileSheet
     }
 
     @Override
-    public void showErrorState() {
+    public void showGeneralError() {
+        Toast.makeText(getActivity(), R.string.general_error, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showFeatureNotAvailableError() {
+        Toast.makeText(getActivity(), R.string.feature_not_available_error, Toast.LENGTH_LONG).show();
     }
 }
