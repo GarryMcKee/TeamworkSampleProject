@@ -100,9 +100,7 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
         mDescTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 toggleOverviewCollapse();
-
             }
         });
 
@@ -139,9 +137,7 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
 
     @Override
     public void onPeopleReady(List<Person> people) {
-        PeopleAdapter adapter = new PeopleAdapter(people);
-        mPeopleListView.setAdapter(adapter);
-
+        mPeopleListView.setAdapter(new PeopleAdapter(people));
     }
 
     private class PeopleAdapter extends RecyclerView.Adapter<PersonHolder> {
@@ -162,12 +158,8 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
         public void onBindViewHolder(final PersonHolder holder, int position) {
             final Person person = mPeople.get(position);
 
-            String firstName = person.getFirstName();
-            String lastName = person.getLastName();
-            String displayName = firstName + " " + lastName;
-
             holder.personAvatarView.setImageURI(person.getAvatarUrl());
-            holder.personNameTextView.setText(displayName);
+            holder.personNameTextView.setText(person.getFullName());
             holder.setPerson(person);
         }
 
