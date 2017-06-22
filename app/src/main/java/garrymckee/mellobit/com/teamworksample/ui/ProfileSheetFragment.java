@@ -111,14 +111,14 @@ public class ProfileSheetFragment extends DialogFragment implements ProfileSheet
             callButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    mPresenter.callPerson(number, getActivity());
                 }
             });
 
             messageButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //sms
+                    mPresenter.messagePerson(number, getActivity());
                 }
             });
         } else {

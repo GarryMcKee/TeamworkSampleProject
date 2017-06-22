@@ -23,11 +23,21 @@ public class ProfileSheetPresenter implements ProfileSheetContract.ProfileSheetP
 
     @Override
     public void callPerson(String number, Context context) {
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:" + number));
+        if(intent.resolveActivity(context.getPackageManager()) != null) {
+            context.startActivity(intent);
+        }
 
     }
 
     @Override
     public void messagePerson(String number, Context context) {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("smsto:" + number));  // This ensures only SMS apps respond
+        if (intent.resolveActivity(context.getPackageManager()) != null) {
+            context.startActivity(intent);
+        }
 
     }
 
