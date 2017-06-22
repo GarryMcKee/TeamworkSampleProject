@@ -5,4 +5,11 @@
     <string name="general_error">Something went wrong, please check your connection and try again.</string>
     <string name="feature_not_available_error">Sorry, this feature is not available on your device.</string>
     <string name="close_profile_sheet">Close</string>
+
+    <!-- Accessibility Strings !-->
+    <string name="acc_call_button_desc">Call Button</string>
+    <string name="acc_sms_button_desc">SMS Button</string>
+    <string name="acc_email_button_desc">Email Button</string>
+    <string name="acc_expand_proj_overview_desc">Expand project overview</string>
+
 </resources>

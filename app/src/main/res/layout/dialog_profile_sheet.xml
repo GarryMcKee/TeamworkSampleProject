@@ -35,6 +35,7 @@
             android:paddingStart="@dimen/project_list_item_horizontal_padding"
             android:paddingEnd="@dimen/project_list_item_horizontal_padding"
             android:background="@android:color/transparent"
+            android:contentDescription="@string/acc_call_button_desc"
             fresco:srcCompat="@drawable/ic_phone_black_48dp"/>
 
         <ImageButton
@@ -44,6 +45,7 @@
             android:paddingStart="@dimen/project_list_item_horizontal_padding"
             android:paddingEnd="@dimen/project_list_item_horizontal_padding"
             android:background="@android:color/transparent"
+            android:contentDescription="@string/acc_sms_button_desc"
             fresco:srcCompat="@drawable/ic_message_black_48dp"/>
 
         <ImageButton
@@ -53,6 +55,7 @@
             android:paddingStart="@dimen/project_list_item_horizontal_padding"
             android:paddingEnd="@dimen/project_list_item_horizontal_padding"
             android:background="@android:color/transparent"
+            android:contentDescription="@string/acc_email_button_desc"
             fresco:srcCompat="@drawable/ic_mail_outline_black_48dp"/>
 
     </LinearLayout>
