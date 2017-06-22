@@ -31,8 +31,7 @@ public class ProjectPresenter implements ProjectContract.ProjectPresenter {
 
     @Override
     public Project getProject(int projectId) {
-        Project project = ProjectRepository.getInstance().getProjectById(projectId);
-        return project;
+        return ProjectRepository.getInstance().getProjectById(projectId);
     }
 
     @Override
@@ -48,13 +47,16 @@ public class ProjectPresenter implements ProjectContract.ProjectPresenter {
                 } else {
                     Log.e(LOG_TAG, "View is null");
                 }
-
             }
 
             @Override
             public void onFailure(Call<People> call, Throwable t) {
-                Log.e(LOG_TAG, "GetPeople call failed");
-                mView.showGeneralError();
+                if(mView != null) {
+                    mView.showGeneralError();
+                    Log.e(LOG_TAG, "GetPeople call failed: " + t.getMessage());
+                } else {
+                    Log.e(LOG_TAG, "View is null");
+                }
             }
         });
     }

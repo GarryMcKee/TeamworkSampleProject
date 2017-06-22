@@ -84,7 +84,7 @@ public class ProjectListFragment extends Fragment implements ProjectListContract
         @BindView(R.id.project_name_text_view)
         TextView projectNameTextView;
         @BindView(R.id.project_desc_text_view)
-        TextView projectDescTextview;
+        TextView projectDescTextView;
 
         public ProjectViewHolder(View v){
             super(v);
@@ -118,7 +118,7 @@ public class ProjectListFragment extends Fragment implements ProjectListContract
             Project project = mProjects.get(position);
             holder.projectLogo.setImageURI(project.getLogo());
             holder.projectNameTextView.setText(project.getName());
-            holder.projectDescTextview.setText(project.getDescription());
+            holder.projectDescTextView.setText(project.getDescription());
         }
 
         @Override
