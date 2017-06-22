@@ -98,12 +98,6 @@ public class ProfileSheetFragment extends DialogFragment implements ProfileSheet
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        Log.d("CHECKUI", "SETTING UI");
-        super.onViewCreated(view, savedInstanceState);
-    }
-
-    @Override
     public void setupUi() {
         profileAvatarView.setImageURI(getArguments().getString(ARG_AVATAR_URL));
         personNameTextview.setText(getArguments().getString(ARG_NAME));
