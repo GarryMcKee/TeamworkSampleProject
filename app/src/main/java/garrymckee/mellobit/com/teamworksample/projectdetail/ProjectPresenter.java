@@ -21,6 +21,7 @@ import retrofit2.Response;
 public class ProjectPresenter implements ProjectContract.ProjectPresenter {
 
     private static final String LOG_TAG = ProjectPresenter.class.getSimpleName();
+    private static final String DIALOG_PROFILE_SHEET = "dialogProfileSheet";
 
     private ProjectContract.ProjectView mView;
 
@@ -61,7 +62,7 @@ public class ProjectPresenter implements ProjectContract.ProjectPresenter {
     @Override
     public void showProfileSheet(FragmentManager fragmentManager, Person person) {
         ProfileSheetFragment profileSheetFragment = ProfileSheetFragment.newInstance(person);
-        profileSheetFragment.show(fragmentManager, "TESTTAG");
+        profileSheetFragment.show(fragmentManager, DIALOG_PROFILE_SHEET);
     }
 
     @Override
