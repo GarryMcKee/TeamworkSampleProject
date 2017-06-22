@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:fresco="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/profile_avatar_view"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        fresco:roundAsCircle="true"/>
+
+    <TextView
+        android:id="@+id/profile_person_name_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="John Doe"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/call_button_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            fresco:srcCompat="@drawable/ic_phone_black_48dp"/>
+
+        <ImageButton
+            android:id="@+id/message_button_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            fresco:srcCompat="@drawable/ic_message_black_48dp"/>
+
+        <ImageButton
+            android:id="@+id/email_person_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            fresco:srcCompat="@drawable/ic_mail_outline_black_48dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
