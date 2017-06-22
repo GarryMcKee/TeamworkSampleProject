@@ -1,5 +1,6 @@
 package garrymckee.mellobit.com.teamworksample.ui;
 
+import android.content.Context;
 import android.util.Log;
 
 import garrymckee.mellobit.com.teamworksample.api.TeamworkApiService;
@@ -37,6 +38,11 @@ public class ProjectListPresenter implements ProjectListContract.ProjectListPres
     @Override
     public int getProjectId(int position) {
         return ProjectRepository.getInstance().getProjects().get(position).getId();
+    }
+
+    @Override
+    public void showProject(Context context, int projectId) {
+        context.startActivity(ProjectActivity.newIntent(context, projectId));
     }
 
     private void getProjectsFromLocal() {

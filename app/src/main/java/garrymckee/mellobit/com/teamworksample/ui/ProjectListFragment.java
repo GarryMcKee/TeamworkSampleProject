@@ -96,7 +96,7 @@ public class ProjectListFragment extends Fragment implements ProjectListContract
         @Override
         public void onClick(View v) {
             int projectId = mPresenter.getProjectId(this.getLayoutPosition());
-            getActivity().startActivity(ProjectActivity.newIntent(getActivity(), projectId));
+            mPresenter.showProject(getActivity(), projectId);
         }
     }
 
