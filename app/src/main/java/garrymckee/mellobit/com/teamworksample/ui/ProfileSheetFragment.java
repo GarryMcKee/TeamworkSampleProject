@@ -37,6 +37,8 @@ public class ProfileSheetFragment extends DialogFragment implements ProfileSheet
     public static final String ARG_NUMBER = "argNumber";
     public static final String ARG_AVATAR_URL = "argAvatarUrl";
 
+    private ProfileSheetContract.ProfileSheetPresenter mPresenter;
+
     @BindView(R.id.profile_avatar_view)
     SimpleDraweeView profileAvatarView;
 
@@ -86,6 +88,12 @@ public class ProfileSheetFragment extends DialogFragment implements ProfileSheet
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        mPresenter = new ProfileSheetPresenter(this);
+    }
+
+    @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         Log.d("CHECKUI", "SETTING UI");
         super.onViewCreated(view, savedInstanceState);
@@ -103,7 +111,7 @@ public class ProfileSheetFragment extends DialogFragment implements ProfileSheet
             callButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //Call with:
+
                 }
             });
 
@@ -125,7 +133,7 @@ public class ProfileSheetFragment extends DialogFragment implements ProfileSheet
             emailButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //email
+                    mPresenter.sendEmail(new String[]{email}, getActivity());
                 }
             });
         } else {

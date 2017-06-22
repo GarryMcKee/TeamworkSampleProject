@@ -170,15 +170,6 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
             holder.personAvatarView.setImageURI(person.getAvatarUrl());
             holder.personNameTextView.setText(displayName);
             holder.setPerson(person);
-
-            holder.emailPersonIcon.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Project project = mPresenter.getProject(mProjectId);
-                    String[] emails = new String[] {person.geteMail()};
-                    mPresenter.sendEmail(emails, project.getName(), getActivity());
-                }
-            });
         }
 
         @Override
@@ -195,8 +186,6 @@ public class ProjectFragment extends Fragment implements ProjectContract.Project
         SimpleDraweeView personAvatarView;
         @BindView(R.id.person_name_text_view)
         TextView personNameTextView;
-        @BindView(R.id.email_person_icon)
-        ImageView emailPersonIcon;
 
         public PersonHolder(View v) {
             super(v);

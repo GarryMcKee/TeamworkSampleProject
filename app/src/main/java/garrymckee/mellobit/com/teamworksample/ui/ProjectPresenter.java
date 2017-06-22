@@ -62,18 +62,6 @@ public class ProjectPresenter implements ProjectContract.ProjectPresenter {
     }
 
     @Override
-    public void sendEmail(String[] emails, String subject, Context context) {
-        Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setData(Uri.parse("mailto:"));
-        intent.putExtra(Intent.EXTRA_EMAIL, emails);
-        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-        if (intent.resolveActivity(context.getPackageManager()) != null) {
-            context.startActivity(intent);
-        }
-
-    }
-
-    @Override
     public void showProfileSheet(FragmentManager fragmentManager, Person person) {
         ProfileSheetFragment profileSheetFragment = ProfileSheetFragment.newInstance(person);
         profileSheetFragment.show(fragmentManager, "TESTTAG");
