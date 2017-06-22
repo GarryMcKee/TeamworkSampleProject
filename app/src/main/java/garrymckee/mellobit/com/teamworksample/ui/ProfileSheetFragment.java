@@ -94,6 +94,13 @@ public class ProfileSheetFragment extends DialogFragment implements ProfileSheet
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        mPresenter.detachView();
+        mPresenter = null;
+    }
+
+    @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         Log.d("CHECKUI", "SETTING UI");
         super.onViewCreated(view, savedInstanceState);

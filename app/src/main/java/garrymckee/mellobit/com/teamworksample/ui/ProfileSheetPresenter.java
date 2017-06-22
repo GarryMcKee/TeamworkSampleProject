@@ -18,7 +18,7 @@ public class ProfileSheetPresenter implements ProfileSheetContract.ProfileSheetP
 
     @Override
     public void detachView() {
-
+        mView = null;
     }
 
     @Override
