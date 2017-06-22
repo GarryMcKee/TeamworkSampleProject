@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TeamWorkSample</string>
+    <string name="app_name">Project People</string>
     <string name="user_headline_text">People</string>
     <string name="project_overview_label">Overview</string>
     <string name="general_error">Something went wrong, please check your connection and try again.</string>

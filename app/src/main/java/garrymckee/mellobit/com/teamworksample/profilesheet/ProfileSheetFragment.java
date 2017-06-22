@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -148,6 +149,5 @@ public class ProfileSheetFragment extends DialogFragment implements ProfileSheet
 
     @Override
     public void showErrorState() {
-
     }
 }
