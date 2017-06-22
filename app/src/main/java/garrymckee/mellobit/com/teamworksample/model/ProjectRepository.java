@@ -1,7 +1,5 @@
 package garrymckee.mellobit.com.teamworksample.model;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
